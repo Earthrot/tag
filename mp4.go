@@ -335,7 +335,7 @@ func (m metadataMP4) Composer() string {
 
 func (m metadataMP4) Genre() string {
 	if g, ok := m.data["gnre"]; ok {
-		gid, ok := g.(int); ok && gid > 0 && gid <= len(id3v1Genres) {
+		if gid, ok := g.(int); ok && gid > 0 && gid <= len(id3v1Genres) {
 			return id3v1Genres[gid-1]
 		}
 	}
